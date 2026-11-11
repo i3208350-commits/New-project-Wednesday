@@ -39,7 +39,7 @@ def start_game(new_game):
         print("computer won!!")
     e = r.lpad()
     r.m.append(e)
-    r.display_game_json(new_game)
+    r.display_game_json(r.m)
 
 
     print(new_game)

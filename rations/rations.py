@@ -65,10 +65,12 @@ def play_round(i,player_score,computer_score,new_game):
 
 
 
-def display_game_json(new_game):
-    data=f.new_game
+def display_game_json(m):
+
+    # a=lpad()
+    # a.append(f.new_game)
     with open("game_history.json", "w", encoding="utf-8") as file:
-        json.dump(data, file, indent=2, ensure_ascii=False)
+        json.dump(m, file, indent=2, ensure_ascii=False)
 
 def lpad():
     with open("game_history.json", "r", encoding="utf-8") as file:
