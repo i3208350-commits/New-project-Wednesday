@@ -1,6 +1,5 @@
 import random
-import functions.functions as f
-from functions.game_history import game_history
+
 import json
 player_score=0
 computer_score=0
@@ -55,10 +54,8 @@ def play_round(i,player_score,computer_score,new_game):
     if game["winner"] == "computer":
         new_game["computer_score"]+=1
     new_listi.append(game)
-    print(game)
+
     victory_check(player, player_score, computer, computer_score)
-
-
     return new_listi
 
 
@@ -66,27 +63,25 @@ def play_round(i,player_score,computer_score,new_game):
 
 
 def display_game_json(m):
-
-    # a=lpad()
-    # a.append(f.new_game)
     with open("game_history.json", "w", encoding="utf-8") as file:
         json.dump(m, file, indent=2, ensure_ascii=False)
 
 def lpad():
-    with open("game_history.json", "r", encoding="utf-8") as file:
-        datao=json.load(file)
-        return datao
+    try:
+        with open("game_history.json", "r", encoding="utf-8") as file:
+            datao=json.load(file)
+            return datao
+    except Exception:
+        return []
+
 
 
 def calculate_winner(player_score,computer_score):
     if player_score > computer_score:
-        return "player_score :  won"
+        return "player"
     if player_score < computer_score:
-        return "computer_score :  won"
+        return "computer"
     if player_score == computer_score:
-       return "result of a draw"
+       return "Draw"
 
-# def statistics():
-#     o = lpad()
-#     for i in o:
 
